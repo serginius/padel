@@ -4,7 +4,7 @@ import { getLeague, computeStats } from "@/lib/data";
 import { initials } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Jugadores · Pádel" };
+export const metadata = { title: "Jugadores · Slice Pádel" };
 
 export default async function Jugadores() {
   const supabase = await createClient();

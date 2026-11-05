@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getLeague } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Ranking · Pádel" };
+export const metadata = { title: "Ranking · Slice Pádel" };
 
 export default async function Ranking({ searchParams }) {
   const { ver } = await searchParams;

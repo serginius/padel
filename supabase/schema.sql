@@ -1,4 +1,4 @@
--- Pádel: esquema de base de datos para Supabase.
+-- Slice Pádel: esquema de base de datos para Supabase.
 -- Pegá TODO este archivo en Supabase > SQL Editor > New query y tocá "Run".
 -- Al final, cambiá el mail del admin por tu Gmail.
 

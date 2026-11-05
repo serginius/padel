@@ -1,4 +1,4 @@
-# Pádel
+# Slice Pádel
 
 App web de nuestro pádel: próximos partidos, resultados set por set, quién jugó con quién, ranking de jugadores y de parejas, y la carta de cada jugador con foto.
 
@@ -27,7 +27,7 @@ Todo corre gratis: **Supabase** (base de datos, login con Google y fotos) + **Ve
 ### 2. Google: botón "Entrar con Google"
 
 1. Entrá a [console.cloud.google.com](https://console.cloud.google.com) con tu Gmail y creá un proyecto nuevo (`padel`).
-2. Andá a **APIs y servicios → Pantalla de consentimiento de OAuth**: tipo **Externo**, nombre de la app "Pádel", tu mail de soporte. Guardá y **publicá la app** (botón "Publicar app"), así entra cualquiera que vos habilites.
+2. Andá a **APIs y servicios → Pantalla de consentimiento de OAuth**: tipo **Externo**, nombre de la app "Slice Pádel", tu mail de soporte. Guardá y **publicá la app** (botón "Publicar app"), así entra cualquiera que vos habilites.
 3. Andá a **Credenciales → Crear credenciales → ID de cliente de OAuth** → tipo **Aplicación web**.
 4. En **URIs de redireccionamiento autorizados** pegá la URL que te muestra Supabase en **Authentication → Sign In / Providers → Google** (es algo como `https://xxxx.supabase.co/auth/v1/callback`).
 5. Copiá el **ID de cliente** y el **Secreto**, y pegalos en Supabase en esa misma pantalla de Google. Activá el provider y guardá.

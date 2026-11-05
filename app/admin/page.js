@@ -7,7 +7,7 @@ import { getLeague, upcomingMatches, pendingResults, pairName } from "@/lib/data
 import { fmtDate } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Admin · Pádel" };
+export const metadata = { title: "Admin · Slice Pádel" };
 
 export default async function Admin({ searchParams }) {
   const supabase = await createClient();

@@ -1,7 +1,7 @@
 import Crest from "@/components/Crest";
 import GoogleButton from "./GoogleButton";
 
-export const metadata = { title: "Entrar · Pádel" };
+export const metadata = { title: "Entrar · Slice Pádel" };
 
 const ERRORS = {
   "no-habilitado": ["No pudimos reconocerte con esa cuenta. Avisale al que organiza la liga y te suma en un minuto.", "Ese mail de Google no está habilitado. Fijate de entrar con el mismo Gmail que le diste al organizador."],
@@ -14,7 +14,7 @@ export default async function Login({ searchParams }) {
   return (
     <div className="card login-card">
       <Crest />
-      <h2>Tu espacio en Pádel</h2>
+      <h2>Tu espacio en Slice Pádel</h2>
       <p className="muted" style={{ margin: 0 }}>Entrá con tu Google y abrí tu espacio: cómo te fue en el último partido, tu lugar en el ranking y tu carta de jugador.</p>
       {err && (
         <div>

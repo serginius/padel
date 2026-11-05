@@ -11,8 +11,8 @@ const barlow = Barlow({ subsets: ["latin"], weight: ["400", "500", "600"], varia
 const barlowC = Barlow_Condensed({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-barlow-condensed" });
 
 export const metadata = {
-  title: "Pádel",
-  description: "Pádel: partidos, resultados, ranking de jugadores y parejas.",
+  title: "Slice Pádel",
+  description: "Slice Pádel: partidos, resultados, ranking de jugadores y parejas.",
 };
 export const viewport = { themeColor: "#74acdf", viewportFit: "cover", width: "device-width", initialScale: 1 };
 
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
           <FlagArt />
           <div className="wrap">
             <Crest />
-            <Link href="/" className="brand"><h1>Pádel</h1><p>Ranking y partidos</p></Link>
+            <Link href="/" className="brand"><h1>Slice Pádel</h1><p>Ranking y partidos</p></Link>
             <div className="me">
               {user ? (
                 <Link href="/perfil" className="who" style={{ background: "none", padding: 0 }} aria-label="Mi perfil">
