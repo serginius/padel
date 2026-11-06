@@ -40,8 +40,8 @@ function HeroInner({ m, byId }) {
       {live && <div className="hero-live"><LiveRows m={m} byId={byId} s={s} /></div>}
       {!live && (
         <div className="hero-field">
-          <NightCourt />
           <Countdown date={m.date} time={m.time} />
+          <NightCourt />
         </div>
       )}
       <div className="hero-foot">{live ? "🎙️ Se está jugando: la página se actualiza sola" : confText(m)}</div>

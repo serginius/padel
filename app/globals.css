@@ -307,3 +307,6 @@ details.edit[open] summary{margin-bottom:12px}
 .log li .min{font-family:var(--font-display);font-weight:700;color:var(--muted);min-width:34px}
 @media (max-width:520px){.hp-names{font-size:17px}.pair-avs.lg .av{width:38px;height:38px}.lb-name{font-size:16px}.lb-p{font-size:28px;min-width:54px}.point-btn{min-height:150px}}
 .hero-live .pair-avs{display:none}
+/* Pádel: el reloj arriba y la cancha entera abajo, que se vea */
+.hero-field{flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;min-height:0;padding:14px 12px 0}
+.hero-field .night-pitch{position:static;display:block;width:calc(100% + 24px);max-width:none;height:auto;margin:0 -12px}

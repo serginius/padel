@@ -16,7 +16,7 @@ export default function NightCourt() {
   };
   const netH = w(net) * 0.05;
   return (
-    <svg className="night-pitch" viewBox="0 0 600 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <svg className="night-pitch" viewBox="10 8 580 194" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <defs>
         <radialGradient id="nc-light" cx="50%" cy="0%" r="90%">
           <stop offset="0" stopColor="#fff" stopOpacity=".26" />
@@ -60,7 +60,6 @@ export default function NightCourt() {
       {/* Pelotita */}
       <circle cx={cx(s2) + w(s2) * 0.18} cy={s2 - 18} r="5" fill="#d7f34a" />
       <ellipse cx={cx(s2) + w(s2) * 0.18} cy={s2 + 2} rx="5" ry="1.6" fill="#000" fillOpacity=".25" />
-      <rect x="0" y="0" width="600" height="200" fill="url(#nc-light)" />
     </svg>
   );
 }
