@@ -16,7 +16,8 @@ export default async function EditMatch({ params }) {
   if (id === "nuevo") {
     const last = [...matches].sort((a, b) => b.date.localeCompare(a.date))[0];
     m = { id: null, date: nextMatchDate(last?.date), time: last?.time || "20:00", place: last?.place || "", court: last?.court || "",
-      status: "programado", sets: [], teamA: [], teamB: [], notes: "" };
+      status: "programado", sets: [], teamA: [], teamB: [], notes: "",
+      golden_point: !!last?.golden_point, super_tb: !!last?.super_tb, signups: [], videos: [] };
   } else {
     m = matches.find((x) => x.id === id);
     if (!m) notFound();
