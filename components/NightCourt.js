@@ -1,5 +1,5 @@
 // Cancha de pádel en perspectiva, de noche y con luces (dibujo, sin fotos).
-// Piso verde, líneas blancas, red al medio y los blindex del fondo.
+// Piso azul, líneas blancas, red al medio y los blindex del fondo.
 export default function NightCourt() {
   const T = 66, B = 200, TL = 205, TR = 395, BL = 20, BR = 580;
   const x = (y, side) => { const t = (y - T) / (B - T); return side === "l" ? TL + (BL - TL) * t : TR + (BR - TR) * t; };
@@ -23,8 +23,8 @@ export default function NightCourt() {
           <stop offset="1" stopColor="#fff" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="nc-floor" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#2a7f42" />
-          <stop offset="1" stopColor="#38a856" />
+          <stop offset="0" stopColor="#1f4f8f" />
+          <stop offset="1" stopColor="#2d6cc0" />
         </linearGradient>
         <linearGradient id="nc-glass" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#dfefff" stopOpacity=".22" />
@@ -33,7 +33,7 @@ export default function NightCourt() {
         </linearGradient>
       </defs>
       {/* Piso alrededor y cancha */}
-      <polygon points={`${TL - 14},${T} ${TR + 14},${T} ${BR + 40},${B} ${BL - 40},${B}`} fill="#1f5f31" />
+      <polygon points={`${TL - 14},${T} ${TR + 14},${T} ${BR + 40},${B} ${BL - 40},${B}`} fill="#173c6e" />
       <polygon points={`${TL},${T} ${TR},${T} ${BR},${B} ${BL},${B}`} fill="url(#nc-floor)" />
       {/* Blindex del fondo y de los costados */}
       <polygon points={`${TL},${T} ${TL},${T - H(T)} ${TR},${T - H(T)} ${TR},${T}`} fill="url(#nc-glass)" stroke="#fff" strokeOpacity=".5" strokeWidth="1.2" />
