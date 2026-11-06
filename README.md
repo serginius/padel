@@ -22,7 +22,8 @@ Todo corre gratis: **Supabase** (base de datos, login con Google y fotos) + **Ve
 3. Abrí el archivo [`supabase/schema.sql`](supabase/schema.sql) de este repo, copiá todo y pegalo.
 4. **Al final del archivo cambiá `tu-mail@gmail.com` por tu Gmail** (en minúsculas). Ese mail queda como admin.
 5. Tocá **Run**. Tiene que decir "Success".
-6. Andá a **Project Settings → API** (o **Data API**) y anotá dos cosas: la **Project URL** y la **anon public key**.
+6. Hacé lo mismo con [`supabase/02-novedades.sql`](supabase/02-novedades.sql) (videos, EN VIVO punto por punto, link de relator, lesionados y Confirmados).
+7. Andá a **Project Settings → API** (o **Data API**) y anotá dos cosas: la **Project URL** y la **anon public key**.
 
 ### 2. Google: botón "Entrar con Google"
 
@@ -56,6 +57,10 @@ En Supabase → **Authentication → URL Configuration**:
 - **Habilitar a un jugador:** Admin → + Jugador, con su Gmail. Mientras la app de Google siga en modo Prueba, agregá también ese Gmail en Google Cloud → Público → Usuarios de prueba. Sin mail, el jugador aparece en el ranking pero no puede entrar.
 - **Armar el partido:** Admin → + Nuevo partido. Elegís fecha, hora, club, cancha y los dos jugadores de cada pareja (si falta alguno, dejalo en "A confirmar").
 - **Cargar el resultado:** abrí el partido → "Cargar resultado". Tildá "Ya se jugó" y poné los games de cada set. Si no hubo tercer set, dejalo vacío; si fue super tie-break, poné los puntos (ej. 10 a 8).
+- **Relato en vivo:** Admin → 🎙️ Relato en vivo → "Generar link de relator" y mandalo por WhatsApp. El que lo abre no necesita Gmail: toca la pareja que gana cada punto y la app hace la cuenta (15, 30, 40, games, sets y tie-break). Al terminar se guarda el resultado solo.
+- **Probar sin miedo:** "🧪 Probar la planilla" es un modo práctica: no guarda nada. Y "🧹 Volver a cero" borra todo lo cargado de un partido.
+- **Reglas del partido:** en el partido podés tildar ⚡ punto de oro y super tie-break en el 3er set.
+- **Videos:** en el partido pegá los links de YouTube, uno por renglón.
 - **Otro admin:** Admin → Admins → agregar mail.
 
 ## Para programadores

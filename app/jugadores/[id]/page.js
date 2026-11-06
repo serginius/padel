@@ -2,8 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import MatchCard from "@/components/MatchCard";
 import Avatar from "@/components/Avatar";
+import PlayerStats from "@/components/PlayerStats";
+import Copitas from "@/components/Copitas";
+import InjuryBadge from "@/components/Injury";
+import InjuryForm from "@/components/InjuryForm";
 import { createClient, getViewer } from "@/lib/supabase/server";
-import { getLeague, computeStats, playedMatches, pct } from "@/lib/data";
+import { getLeague, computeStats, playedMatches } from "@/lib/data";
 import { initials, displayName } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
@@ -27,18 +31,16 @@ export default async function Jugador({ params }) {
           {p.photo_url ? <img className="big" src={p.photo_url} alt="" /> : <div className="big">{initials(p.name)}</div>}
           <div className="stack" style={{ gap: 6, minWidth: 0 }}>
             <span className="pname">{p.nick || p.name}</span>
+            <InjuryBadge player={p} />
             <span className="muted">{[p.nick ? p.name : "", p.side, p.category ? `Categoría ${p.category}` : "", p.hand].filter(Boolean).join(" · ")}</span>
             <div className="form" aria-label="Últimos 5 partidos">{s.form.slice(-5).map((r, i) => <i key={i} className={r}>{r}</i>)}</div>
           </div>
         </div>
-        <div className="stats">
-          <div className="stat"><b>{s.pg}-{s.pp}</b><span>Ganados-Perdidos</span></div>
-          <div className="stat"><b>{pct(s)}%</b><span>Efectividad</span></div>
-          <div className="stat"><b>{s.sf}-{s.sc}</b><span>Sets</span></div>
-          <div className="stat"><b>{s.gf}-{s.gc}</b><span>Games</span></div>
-        </div>
+        <PlayerStats s={s} />
+        {(isMe || viewer.isAdmin) && <InjuryForm player={p} mine={isMe} />}
         {(isMe || viewer.isAdmin) && <div className="actions"><Link className="btn primary" href={isMe ? "/perfil" : `/admin?editar=${p.id}`}>Editar perfil</Link></div>}
       </div>
+      <Copitas id={id} players={players} matches={matches} />
       {partners.length > 0 && (
         <section className="sec">
           <h2>Compañeros</h2>

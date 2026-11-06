@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient, getViewer } from "@/lib/supabase/server";
 import { getLeague, computeStats } from "@/lib/data";
 import { initials } from "@/lib/format";
+import InjuryBadge from "@/components/Injury";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Jugadores · Slice Pádel" };
@@ -24,6 +25,7 @@ export default async function Jugadores() {
             </div>
             <div className="body">
               <span className="nm">{p.nick || p.name}</span>
+              <InjuryBadge player={p} short />
               <span className="st">{p.side ? `${p.side} · ` : ""}{st[p.id]?.pg || 0} ganados · {st[p.id]?.pj || 0} PJ</span>
             </div>
           </Link>

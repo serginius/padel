@@ -1,6 +1,8 @@
 import Link from "next/link";
 import MatchCard from "@/components/MatchCard";
 import RankingTable from "@/components/RankingTable";
+import Confirmados from "@/components/Confirmados";
+import { copitasFor } from "@/lib/copitas";
 import { createClient, getViewer } from "@/lib/supabase/server";
 import { getLeague, playedMatches, upcomingMatches, computeStats, winner, setsText, pairName, pct } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
@@ -28,7 +30,7 @@ export default async function Home() {
       const sets = inA ? setsText(lastMine) : lastMine.sets.map(([a, b]) => `${b}-${a}`).join("  ");
       txt = `${fmtDate(lastMine.date)}: ${res}${sets ? ` ${sets}` : ""}${partner.length ? ` jugando con ${pairName(partner, byId)}` : ""}.`;
     }
-    mine = { s, txt };
+    mine = { s, txt, copas: copitasFor(id, players, matches).filter((c) => c.won) };
   }
 
   return (
@@ -47,12 +49,20 @@ export default async function Home() {
               <div className="stat"><b>{pct(mine.s)}%</b><span>Efectividad</span></div>
               <div className="stat"><b>{mine.s.sf}-{mine.s.sc}</b><span>Sets</span></div>
             </div>
+            <Link href="/perfil" className="who" style={{ flexWrap: "wrap" }} aria-label="Ver mis copitas">
+              {mine.copas.length ? (
+                <><span className="mini-copitas">{mine.copas.map((c) => <span key={c.id} title={c.name}>{c.e}</span>)}</span><span className="muted" style={{ fontSize: 13 }}>Ver mis copitas →</span></>
+              ) : <span className="muted" style={{ fontSize: 13 }}>🏆 Todavía no ganaste copitas. Mirá cuáles hay →</span>}
+            </Link>
           </div>
         </section>
       )}
       <section className="sec">
-        <div className="sec-head"><h2>Próximo partido</h2>{viewer.isAdmin && <Link className="btn small accent" href="/admin/partidos/nuevo">+ Partido</Link>}</div>
+        <div className="sec-head"><h2>{next?.live ? "🔴 Jugándose ahora" : "🎾 Próximo partido"}</h2>{viewer.isAdmin && <Link className="btn small accent" href="/admin/partidos/nuevo">+ Partido</Link>}</div>
         {next ? <MatchCard m={next} byId={byId} hero /> : <div className="card muted">No hay partido programado.</div>}
+        {next && !next.live && (
+          <Confirmados matchId={next.id} players={next.signups.map((i) => byId[i]).filter(Boolean)} meId={viewer.player?.id || null} loggedIn={!!viewer.user} />
+        )}
       </section>
       <section className="sec">
         <h2>Último resultado</h2>
